@@ -1,0 +1,132 @@
+{
+	"name": "package-meta",
+	"version": "0.0.0",
+	"description": "Easy access to information about the running package.",
+	"main": "source/main.js",
+	"scripts": {
+		"test": "ava -v ./source/main.test.js",
+		"lint": "eslint ./source/main.js",
+		"generate-docs": "extract-documentation-comments -I source/main.js -O API.md",
+		"update-config": "hjson -j ci/github-actions.hjson | json2yaml --preserve-key-order -o .github/workflows/ci.yml",
+		"update-deps": "npm-check-updates -u",
+		"release": "standard-version",
+		"publish-release": "git push --follow-tags origin main && npm publish"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Anadian/package-meta.git"
+	},
+	"keywords": [
+		"package",
+		"module",
+		"meta",
+		"data",
+		"json",
+		"name",
+		"version",
+		"free",
+		"libre",
+		"open",
+		"source",
+		"mit"
+	],
+	"author": "Anadian",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Anadian/package-meta/issues"
+	},
+	"homepage": "https://github.com/Anadian/package-meta#readme",
+	"type": "module",
+	"bin": {
+		"package-meta": "./source/main.js"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"eslintConfig": {
+		"env": {
+			"commonjs": true,
+			"es6": true,
+			"node": true
+		},
+		"extends": "eslint:recommended",
+		"globals": {
+			"Atomics": "readonly",
+			"SharedArrayBuffer": "readonly"
+		},
+		"parserOptions": {
+			"ecmaVersion": 11
+		},
+		"rules": {
+			"no-unused-vars": [
+				"warn"
+			],
+			"no-useless-escape": "off",
+			"no-empty": "warn"
+		}
+	},
+	"standard-version": {
+		"types": [
+			{
+				"type": "build",
+				"section": "Build",
+				"hidden": false
+			},
+			{
+				"type": "ci",
+				"section": "Continuous Integration",
+				"hidden": false
+			},
+			{
+				"type": "chore",
+				"section": "Chores",
+				"hidden": false
+			},
+			{
+				"type": "docs",
+				"section": "Documentation",
+				"hidden": false
+			},
+			{
+				"type": "feat",
+				"section": "Features",
+				"hidden": false
+			},
+			{
+				"type": "fix",
+				"section": "Bug Fixes",
+				"hidden": false
+			},
+			{
+				"type": "perf",
+				"section": "Performance",
+				"hidden": false
+			},
+			{
+				"type": "refactor",
+				"section": "Refactoring",
+				"hidden": false
+			},
+			{
+				"type": "style",
+				"section": "Code Style",
+				"hidden": false
+			},
+			{
+				"type": "test",
+				"section": "Tests",
+				"hidden": false
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^18.0.3",
+		"env-paths": "^3.0.0",
+		"hjson": "^3.2.2",
+		"parse-json": "^6.0.2",
+		"pkg-up": "^4.0.0",
+		"rollup": "^2.77.0",
+		"standard-version": "^9.5.0",
+		"tsup": "^6.1.3"
+	}
+}
