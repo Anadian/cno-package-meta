@@ -51,8 +51,18 @@ function PackageMeta( options ){
 			_return.url = options;
 			_return.filename = URLNS.fileURLToPath(_return.url);
 		} else{ //Path
-			_return.filename = Path.normalize( options );
-			_return.url = URLNS.pathToFileURL( _return.filename ).href;
+			try{
+				_return.filename = Path.normalize( options );
+			} catch(error){
+				return_error = new Error(`Path.normalize threw an error: ${error}`);
+				throw return_error;
+			}
+			try{
+				_return.url = URLNS.pathToFileURL( _return.filename ).href;
+			} catch(error){
+				return_error = new Error(`URLNS.pathToFileURL threw an error: ${error}`);
+				throw return_error;
+			}
 		}
 	} else if( options instanceof URLNS.URL ){
 		_return.url = options.href;
@@ -79,7 +89,13 @@ export default function getPackageMeta( options = {} ){
 		return ( new PackageMeta( options ) );
 	}*/
 	var return_error = null;
-	var _return = new PackageMeta( options );
+	var _return = null;
+	try{
+		_return = new PackageMeta( options );
+	} catch(error){
+		return_error = new Error(`new PackageMeta threw an error: ${error}`);
+		throw return_error;
+	}
 	var packageMetaPromise = PkgUpNS.pkgUp( { cwd: _return.dirname } ).then( value => {
 		var readPromise = FileSystem.promises.readFile( value, 'utf8' );
 		_return.paths.packageDirectory = Path.dirname( value );
