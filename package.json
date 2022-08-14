@@ -117,13 +117,15 @@
 		]
 	},
 	"devDependencies": {
+		"ava": "^4.3.1",
+		"coveralls": "^3.1.1",
+		"extract-documentation-comments": "^0.3.12",
 		"hjson": "^3.2.2",
+		"nyc": "^15.1.0",
 		"standard-version": "^9.5.0"
 	},
 	"dependencies": {
-		"ava": "^4.3.1",
 		"env-paths": "^3.0.0",
-		"extract-documentation-comments": "^0.3.12",
 		"parse-json": "^6.0.2",
 		"pkg-up": "^4.0.0"
 	}
