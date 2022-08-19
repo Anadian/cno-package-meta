@@ -23,6 +23,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: ${{matrix.node}}
+    - uses: pnpm/action-setup@v2.2.2
     - run: pnpm install
     - run: pnpm test
   coverage:
@@ -34,6 +35,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: ${{matrix.node}}
+    - uses: pnpm/action-setup@v2.2.2
     - run: pnpm install
     - run: pnpm test && pnpm nyc report --reporter=text-lcov > lcov.txt
     - uses: coverallsapp/github-action@master

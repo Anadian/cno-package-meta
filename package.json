@@ -128,5 +128,6 @@
 		"env-paths": "^3.0.0",
 		"parse-json": "^6.0.2",
 		"pkg-up": "^4.0.0"
-	}
+	},
+	"packageManager": "pnpm@7.5.2"
 }

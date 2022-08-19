@@ -19,6 +19,7 @@
 						'node-version': '${{matrix.node}}'
 					}
 				},
+				{ uses: 'pnpm/action-setup@v2.2.2' },
 				{
 					run: 'pnpm install'
 				},
@@ -39,6 +40,7 @@
 						'node-version': '${{matrix.node}}'
 					}
 				},
+				{ uses: 'pnpm/action-setup@v2.2.2' },
 				{
 					run: 'pnpm install'
 				},
