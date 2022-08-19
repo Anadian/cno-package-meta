@@ -31,7 +31,7 @@
 					with: {
 						version: '7'
 					},
-					if: '${{ matrix.node >= 14 || matrix.node == "latest" }}'
+					if: "${{ matrix.node >= 14 || matrix.node == 'latest' }}"
 				},
 				{
 					run: 'pnpm install'
