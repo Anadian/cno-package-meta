@@ -24,6 +24,13 @@ jobs:
       with:
         node-version: ${{matrix.node}}
     - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: '6.10'
+      if: ${{ matrix.node < 14 }}
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: '7'
+      if: ${{ matrix.node >= 14 || matrix.node == "latest" }}
     - run: pnpm install
     - run: pnpm test
   coverage:
@@ -36,6 +43,9 @@ jobs:
       with:
         node-version: ${{matrix.node}}
     - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: '7'
+      if: ${{ matrix.node >= 14 || matrix.node == "latest" }}
     - run: pnpm install
     - run: pnpm test && pnpm nyc report --reporter=text-lcov > lcov.txt
     - uses: coverallsapp/github-action@master
