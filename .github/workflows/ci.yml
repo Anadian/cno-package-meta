@@ -46,8 +46,8 @@ jobs:
       with:
         version: '7'
     - run: pnpm install
-    - run: pnpm nyc pnpm test && pnpm nyc report --reporter=text-lcov > lcov.txt
+    - run: pnpm ci
     - uses: coverallsapp/github-action@master
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
-        path-to-lcov: lcov.txt
+        path-to-lcov: coverage/lcov.txt
