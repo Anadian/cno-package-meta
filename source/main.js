@@ -118,7 +118,7 @@ export default function getPackageMeta( options = {} ){
 		}
 		return _return;
 	}, error => {
-			return_error = new Error(`FileSystem.promises.readFile threw an error: ${error}`);
+			return_error = new Error(`FileSystem.promises.readFile threw an error: ${error} ${JSON.stringify(_return)}`);
 			throw return_error;
 	} );
 	return packageMetaPromise;
