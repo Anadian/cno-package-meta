@@ -50,7 +50,7 @@
 				{
 					uses: 'actions/setup-node@v3',
 					with: {
-						'node-version': '${{matrix.node}}'
+						'node-version': 'latest'
 					}
 				},
 				{
@@ -58,7 +58,6 @@
 					with: {
 						version: '7'
 					},
-					if: "${{ matrix.node >= 14 || matrix.node == 'latest' }}"
 				},
 				{
 					run: 'pnpm install'
