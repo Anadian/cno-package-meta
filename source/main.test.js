@@ -11,8 +11,6 @@ AVA( 'FirstTest', async function(t){
 	var test_inputs = [
 		import.meta,
 		import.meta.url,
-		'file.js',
-		'/home/cameron/dev/package-meta/file.js',
 		{
 			url: import.meta.url
 		},
