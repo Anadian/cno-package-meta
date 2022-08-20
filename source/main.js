@@ -97,24 +97,32 @@ export default function getPackageMeta( options = {} ){
 		throw return_error;
 	}
 	var packageMetaPromise = PkgUpNS.pkgUp( { cwd: _return.dirname } ).then( value => {
-		var readPromise = FileSystem.promises.readFile( value, 'utf8' );
-		_return.paths.packageDirectory = Path.dirname( value );
-		return readPromise;
+		if( value != undefined ){
+			var readPromise = FileSystem.promises.readFile( value, 'utf8' );
+			_return.paths.packageDirectory = Path.dirname( value );
+			return readPromise;
+		} else{
+			return Promise.resolve( undefined );
+		}
 	}, error => {
 		return_error = new Error(`PkgUp threw an error: ${error}`);
 		throw return_error;
 	} ).then( value => {
-		try{
-			_return.packageJSON = ParseJSON(value);
-			_return.name = _return.packageJSON.name;
-			_return.version = _return.packageJSON.version;
-			_return.paths = {
-				..._return.paths,
-				...EnvPaths( _return.name )
-			};
-		} catch(error){
-			return_error = new Error(`ParseJSON threw an error: ${error}`);
-			throw return_error;
+		if( value != undefined ){
+			try{
+				_return.packageJSON = ParseJSON(value);
+				_return.name = _return.packageJSON.name;
+				_return.version = _return.packageJSON.version;
+				_return.paths = {
+					..._return.paths,
+					...EnvPaths( _return.name )
+				};
+			} catch(error){
+				return_error = new Error(`ParseJSON threw an error: ${error}`);
+				throw return_error;
+			}
+		} else{
+			//warn package.json not found.
 		}
 		return _return;
 	}, error => {
@@ -130,29 +138,33 @@ function getPackageMetaSync( options = {} ){
 	var packageData = '';
 	try{
 		packagePath = PkgUpNS.pkgUpSync( { cwd: _return.dirname } );
-		try{
-			_return.paths.packageDirectory = Path.dirname( packagePath );
+		if( packagePath != undefined ){
 			try{
-				packageData = FileSystem.readFileSync( packagePath, 'utf8' );
+				_return.paths.packageDirectory = Path.dirname( packagePath );
 				try{
-					_return.packageJSON = ParseJSON( packageData );
-					_return.name = _return.packageJSON.name;
-					_return.version = _return.packageJSON.version;
-					_return.paths = {
-						..._return.paths,
-						...EnvPaths( _return.name )
-					};
+					packageData = FileSystem.readFileSync( packagePath, 'utf8' );
+					try{
+						_return.packageJSON = ParseJSON( packageData );
+						_return.name = _return.packageJSON.name;
+						_return.version = _return.packageJSON.version;
+						_return.paths = {
+							..._return.paths,
+							...EnvPaths( _return.name )
+						};
+					} catch(error){
+						return_error = new Error(`ParseJSON threw an error: ${error}`);
+						throw return_error;
+					}
 				} catch(error){
-					return_error = new Error(`ParseJSON threw an error: ${error}`);
+					return_error = new Error(`FileSystem.readFileSync threw an error: ${error}`);
 					throw return_error;
 				}
 			} catch(error){
-				return_error = new Error(`FileSystem.readFileSync threw an error: ${error}`);
+				return_error = new Error(`Path.dirname threw an error: ${error}`);
 				throw return_error;
 			}
-		} catch(error){
-			return_error = new Error(`Path.dirname threw an error: ${error}`);
-			throw return_error;
+		} else{
+			//warn package.json couldn't be found.
 		}
 	} catch(error){
 		return_error = new Error(`PkgUpNS.pkgUpSync threw an error: ${error}`);
