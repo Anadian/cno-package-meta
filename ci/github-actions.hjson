@@ -63,7 +63,7 @@
 					run: 'pnpm install'
 				},
 				{
-					run: 'pnpm test && pnpm nyc report --reporter=text-lcov > lcov.txt'
+					run: 'pnpm nyc pnpm test && pnpm nyc report --reporter=text-lcov > lcov.txt'
 				},
 				{
 					uses: 'coverallsapp/github-action@master',
