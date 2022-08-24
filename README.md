@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/github/license/Anadian/simple-package-meta)](https://github.com/Anadian/simple-package-meta/blob/main/LICENSE)
 [![ci](https://github.com/Anadian/simple-package-meta/actions/workflows/ci.yml/badge.svg)](https://github.com/Anadian/simple-package-meta/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/github/Anadian/simple-package-meta/badge.svg?branch=main)](https://coveralls.io/github/Anadian/simple-package-meta?branch=main)
+[![npm](https://img.shields.io/npm/v/simple-package-meta)](https://www.npmjs.com/package/simple-package-meta)
 
 > Easy access to information about the running package.
 # Table of Contents
