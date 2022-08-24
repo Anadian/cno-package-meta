@@ -1,5 +1,5 @@
 {
-	"name": "package-meta",
+	"name": "simple-package-meta",
 	"version": "0.0.1",
 	"description": "Easy access to information about the running package.",
 	"main": "source/main.js",
@@ -13,11 +13,11 @@
 		"update-config": "hjson -j ci/github-actions.hjson | json2yaml --preserve-key-order -o .github/workflows/ci.yml",
 		"update-deps": "npm-check-updates -u",
 		"release": "standard-version",
-		"publish-release": "git push --follow-tags origin main && pnpm publish"
+		"publish-release": "git push --follow-tags origin main && npm publish"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Anadian/package-meta.git"
+		"url": "git+https://github.com/Anadian/simple-package-meta.git"
 	},
 	"keywords": [
 		"package",
@@ -36,9 +36,9 @@
 	"author": "Anadian",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/Anadian/package-meta/issues"
+		"url": "https://github.com/Anadian/simple-package-meta/issues"
 	},
-	"homepage": "https://github.com/Anadian/package-meta#readme",
+	"homepage": "https://github.com/Anadian/simple-package-meta#readme",
 	"type": "module",
 	"engines": {
 		"node": ">=12"
