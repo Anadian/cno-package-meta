@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/Anadian/simple-package-meta/compare/v0.0.2...v0.0.3) (2022-08-24)
+
+
+### Documentation
+
+* Added npm badge. ([9ca85ae](https://github.com/Anadian/simple-package-meta/commit/9ca85aef91787da1f12299d0a49fa5f6a625a961))
+
 ### [0.0.2](https://github.com/Anadian/simple-package-meta/compare/v0.0.1...v0.0.2) (2022-08-24)
 
 
