@@ -1,6 +1,6 @@
 {
 	"name": "simple-package-meta",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Easy access to information about the running package.",
 	"main": "source/main.js",
 	"scripts": {

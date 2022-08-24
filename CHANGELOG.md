@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/Anadian/simple-package-meta/compare/v0.0.1...v0.0.2) (2022-08-24)
+
+
+### Chores
+
+* Last commit before finally publishing. ([75e96a1](https://github.com/Anadian/simple-package-meta/commit/75e96a1840c56d48fb648a0e18375726572b9f17))
+* Minor changes. ([6334ea7](https://github.com/Anadian/simple-package-meta/commit/6334ea7f6112fdd5e784154888c8007d1831bb5f))
+* Renaming package to `simple-package-meta`. ([2c78a50](https://github.com/Anadian/simple-package-meta/commit/2c78a50454a7084647e612908890c7ed23b22eea))
+
 ### 0.0.1 (2022-08-24)
 
 
