@@ -21,7 +21,7 @@ Using [pnpm](https://pnpm.io/cli/add):
 ```sh
 pnpm add --save simple-package-meta
 ```
-Can, of course, also be installed by [NPM](https://docs.npmjs.com/cli/v8/commands/npm-install) or [Yarn](https://yarnpkg.com/getting-started/usage) using the normal methods.
+It can, of course, also be installed by [NPM](https://docs.npmjs.com/cli/v8/commands/npm-install) or [Yarn](https://yarnpkg.com/getting-started/usage) using the normal methods.
 # Usage
 ```js
 import getPackageMeta from 'simple-package-meta'; //The default is just the getPackageMeta function
