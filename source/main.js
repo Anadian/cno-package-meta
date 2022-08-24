@@ -53,13 +53,13 @@ function PackageMeta( options ){
 		} else{ //Path
 			try{
 				_return.filename = Path.normalize( options );
-			} catch(error) /* c8 ignore next */{
+			} catch(error) /* c8 ignore next 2 */{
 				return_error = new Error(`Path.normalize threw an error: ${error}`);
 				throw return_error;
 			}
 			try{
 				_return.url = URLNS.pathToFileURL( _return.filename ).href;
-			} catch(error) /* c8 ignore next */{
+			} catch(error) /* c8 ignore next 2 */{
 				return_error = new Error(`URLNS.pathToFileURL threw an error: ${error}`);
 				throw return_error;
 			}
@@ -81,7 +81,7 @@ function PackageMeta( options ){
 	}
 	try{
 		_return.dirname = Path.dirname( _return.filename );
-	} catch( error )/* c8 ignore next */{
+	} catch( error )/* c8 ignore next 2 */{
 		return_error = new Error( `Path.dirname threw an error: ${error}` );
 		throw return_error;
 	}
@@ -121,7 +121,7 @@ export default function getPackageMeta( options = {} ){
 					..._return.paths,
 					...EnvPaths( _return.name )
 				};
-			} catch(error) /* c8 ignore next */{
+			} catch(error) /* c8 ignore next 2 */{
 				return_error = new Error(`ParseJSON threw an error: ${error}`);
 				throw return_error;
 			}
@@ -129,7 +129,7 @@ export default function getPackageMeta( options = {} ){
 			//warn package.json not found.
 		}
 		return _return;
-	}, error => /* c8 ignore next */{
+	}, error => /* c8 ignore next 2 */{
 			return_error = new Error(`FileSystem.promises.readFile threw an error: ${error} ${JSON.stringify(_return)}`);
 			throw return_error;
 	} );
@@ -155,22 +155,22 @@ function getPackageMetaSync( options = {} ){
 							..._return.paths,
 							...EnvPaths( _return.name )
 						};
-					} catch(error) /* c8 ignore next */{
+					} catch(error) /* c8 ignore next 2 */{
 						return_error = new Error(`ParseJSON threw an error: ${error}`);
 						throw return_error;
 					}
-				} catch(error) /* c8 ignore next */{
+				} catch(error) /* c8 ignore next 2 */{
 					return_error = new Error(`FileSystem.readFileSync threw an error: ${error}`);
 					throw return_error;
 				}
-			} catch(error) /* c8 ignore next */{
+			} catch(error) /* c8 ignore next 2 */{
 				return_error = new Error(`Path.dirname threw an error: ${error}`);
 				throw return_error;
 			}
 		} else{
 			//warn package.json couldn't be found.
 		}
-	} catch(error) /* c8 ignore next */{
+	} catch(error) /* c8 ignore next 2 */{
 		return_error = new Error(`PkgUpNS.pkgUpSync threw an error: ${error}`);
 		throw return_error;
 	}

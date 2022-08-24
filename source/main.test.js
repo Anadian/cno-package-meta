@@ -15,7 +15,10 @@ AVA( 'FirstTest', async function(t){
 			url: import.meta.url
 		},
 		'./main.js',
-		new globalThis.URL( import.meta.url )
+		new globalThis.URL( import.meta.url ),
+		{
+			url: new globalThis.URL( import.meta.url )
+		}
 	];
 	for( var i = 0; i < test_inputs.length; i++ ){
 		t.log( `test:  ${i}` );
