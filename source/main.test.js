@@ -14,6 +14,7 @@ AVA( 'FirstTest', async function(t){
 		{
 			url: import.meta.url
 		},
+		'./main.js',
 		new globalThis.URL( import.meta.url )
 	];
 	for( var i = 0; i < test_inputs.length; i++ ){
@@ -25,4 +26,19 @@ AVA( 'FirstTest', async function(t){
 		t.log( `${pm}, ${await pmP}, ${pmD}, ${pmSync}` );
 	}
 	t.pass();
+} );
+AVA( 'Error:PackageMeta:InvalidArgument', function(t){
+	t.log(t.title);
+	var input = PackageMeta.bind( undefined, true );
+	t.throws( input, { instanceOf: Error, code: 'ERR_INVALID_ARG_TYPE' } );
+} );
+AVA( 'Error:getPackageMeta:InvalidArgument', function(t){
+	t.log(t.title);
+	var input = getPackageMeta.bind( undefined, true );
+	t.throws( input, { instanceOf: Error } );
+} );
+AVA( 'Error:getPackageMetaSync:InvalidArgument', function(t){
+	t.log(t.title);
+	var input = getPackageMeta.bind( undefined, true );
+	t.throws( input, { instanceOf: Error } );
 } );

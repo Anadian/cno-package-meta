@@ -53,13 +53,13 @@ function PackageMeta( options ){
 		} else{ //Path
 			try{
 				_return.filename = Path.normalize( options );
-			} catch(error){
+			} catch(error) /* c8 ignore next */{
 				return_error = new Error(`Path.normalize threw an error: ${error}`);
 				throw return_error;
 			}
 			try{
 				_return.url = URLNS.pathToFileURL( _return.filename ).href;
-			} catch(error){
+			} catch(error) /* c8 ignore next */{
 				return_error = new Error(`URLNS.pathToFileURL threw an error: ${error}`);
 				throw return_error;
 			}
@@ -74,10 +74,14 @@ function PackageMeta( options ){
 			_return.url = options.url;
 		}
 		_return.filename = URLNS.fileURLToPath( _return.url );
+	} else{
+		return_error = new Error( `Error: 'options' is neither a string, URL, or a valid object.` );
+		return_error.code = 'ERR_INVALID_ARG_TYPE';
+		throw return_error;
 	}
 	try{
 		_return.dirname = Path.dirname( _return.filename );
-	} catch( error ){
+	} catch( error )/* c8 ignore next */{
 		return_error = new Error( `Path.dirname threw an error: ${error}` );
 		throw return_error;
 	}
@@ -101,10 +105,10 @@ export default function getPackageMeta( options = {} ){
 			var readPromise = FileSystem.promises.readFile( value, 'utf8' );
 			_return.paths.packageDirectory = Path.dirname( value );
 			return readPromise;
-		} else{
+		} else /* c8 ignore next */{
 			return Promise.resolve( undefined );
 		}
-	}, error => {
+	}, error => /* c8 ignore next */{
 		return_error = new Error(`PkgUp threw an error: ${error}`);
 		throw return_error;
 	} ).then( value => {
@@ -117,15 +121,15 @@ export default function getPackageMeta( options = {} ){
 					..._return.paths,
 					...EnvPaths( _return.name )
 				};
-			} catch(error){
+			} catch(error) /* c8 ignore next */{
 				return_error = new Error(`ParseJSON threw an error: ${error}`);
 				throw return_error;
 			}
-		} else{
+		} else /* c8 ignore next */{
 			//warn package.json not found.
 		}
 		return _return;
-	}, error => {
+	}, error => /* c8 ignore next */{
 			return_error = new Error(`FileSystem.promises.readFile threw an error: ${error} ${JSON.stringify(_return)}`);
 			throw return_error;
 	} );
@@ -151,22 +155,22 @@ function getPackageMetaSync( options = {} ){
 							..._return.paths,
 							...EnvPaths( _return.name )
 						};
-					} catch(error){
+					} catch(error) /* c8 ignore next */{
 						return_error = new Error(`ParseJSON threw an error: ${error}`);
 						throw return_error;
 					}
-				} catch(error){
+				} catch(error) /* c8 ignore next */{
 					return_error = new Error(`FileSystem.readFileSync threw an error: ${error}`);
 					throw return_error;
 				}
-			} catch(error){
+			} catch(error) /* c8 ignore next */{
 				return_error = new Error(`Path.dirname threw an error: ${error}`);
 				throw return_error;
 			}
 		} else{
 			//warn package.json couldn't be found.
 		}
-	} catch(error){
+	} catch(error) /* c8 ignore next */{
 		return_error = new Error(`PkgUpNS.pkgUpSync threw an error: ${error}`);
 		throw return_error;
 	}
