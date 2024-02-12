@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/Anadian/cno-package-meta/compare/v0.0.3...v0.0.4) (2024-02-12)
+
+
+### Refactoring
+
+* Changing name to `cno-package-meta` for better consistency. ([ef372fb](https://github.com/Anadian/cno-package-meta/commit/ef372fb7e0f69fe8361367a23b7938f147503828))
+* Code updates. ([4389b3d](https://github.com/Anadian/cno-package-meta/commit/4389b3d08379ce7cafe59675a7f796a04393a9a6))
+* Updated README. ([2278ad7](https://github.com/Anadian/cno-package-meta/commit/2278ad7994ec5b9055bf1321414da109fbe602da))
+
+
+### Chores
+
+* Updated config. ([564e887](https://github.com/Anadian/cno-package-meta/commit/564e88785470eb2a5abdc83cb9d1192ab09ac42b))
+* Updated config. ([5917360](https://github.com/Anadian/cno-package-meta/commit/5917360a1d153748a90fb93467e819a9ab49e4ee))
+* Updated config. ([5345393](https://github.com/Anadian/cno-package-meta/commit/53453933e9009ba5cc83fd4066580a112d6b2a94))
+
 ### [0.0.3](https://github.com/Anadian/simple-package-meta/compare/v0.0.2...v0.0.3) (2022-08-24)
 
 

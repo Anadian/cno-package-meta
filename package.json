@@ -1,6 +1,6 @@
 {
 	"name": "cno-package-meta",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "A micropackage (formerly simple-package-meta) which offers easy access to information about the running package. ",
 	"main": "src/lib.js",
 	"scripts": {
