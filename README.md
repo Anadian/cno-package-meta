@@ -1,13 +1,13 @@
-# simple-package-meta
+# cno-package-meta
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 [![Semantic Versioning 2.0.0](https://img.shields.io/badge/semver-2.0.0-brightgreen?style=flat-square)](https://semver.org/spec/v2.0.0.html)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
-[![License](https://img.shields.io/github/license/Anadian/simple-package-meta)](https://github.com/Anadian/simple-package-meta/blob/main/LICENSE)
-[![ci](https://github.com/Anadian/simple-package-meta/actions/workflows/ci.yml/badge.svg)](https://github.com/Anadian/simple-package-meta/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/Anadian/simple-package-meta/badge.svg?branch=main)](https://coveralls.io/github/Anadian/simple-package-meta?branch=main)
-[![npm](https://img.shields.io/npm/v/simple-package-meta)](https://www.npmjs.com/package/simple-package-meta)
+[![License](https://img.shields.io/github/license/Anadian/cno-package-meta)](https://github.com/Anadian/cno-package-meta/blob/main/LICENSE)
+[![ci](https://github.com/Anadian/cno-package-meta/actions/workflows/ci.yml/badge.svg)](https://github.com/Anadian/cno-package-meta/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/Anadian/cno-package-meta/badge.svg?branch=main)](https://coveralls.io/github/Anadian/cno-package-meta?branch=main)
+[![npm](https://img.shields.io/npm/v/cno-package-meta)](https://www.npmjs.com/package/cno-package-meta)
 
-> Easy access to information about the running package.
+> A micropackage (formerly `simple-package-meta`) which offers easy access to information about the running package. 
 # Table of Contents
 - [Background](#Background)
 - [Install](#Install)
@@ -20,13 +20,13 @@ A simple sort of convenience, sort of learning ECMAscript module package which t
 # Install
 Using [pnpm](https://pnpm.io/cli/add):
 ```sh
-pnpm add --save simple-package-meta
+pnpm add --save cno-package-meta
 ```
 It can, of course, also be installed by [NPM](https://docs.npmjs.com/cli/v8/commands/npm-install) or [Yarn](https://yarnpkg.com/getting-started/usage) using the normal methods.
 # Usage
 ```js
-import getPackageMeta from 'simple-package-meta'; //The default is just the getPackageMeta function
-import * as PackageMetaNS from 'simple-package-meta'; //The whole namespace
+import getPackageMeta from 'cno-package-meta'; //The default is just the getPackageMeta function
+import * as PackageMetaNS from 'cno-package-meta'; //The whole namespace
 
 var meta_info = getPackageMeta( import.meta ); //Same as PackageMetaNS.getPackageMeta
 ```
