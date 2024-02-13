@@ -40,7 +40,7 @@
 	},
 	"homepage": "https://github.com/Anadian/cno-package-meta#readme",
 	"type": "module",
-	"exports": "src/lib.js",
+	"exports": "./src/lib.js",
 	"engines": {
 		"node": ">=18"
 	},
