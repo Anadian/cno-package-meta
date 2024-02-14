@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/Anadian/cno-package-meta/compare/v0.0.5...v0.1.0) (2024-02-14)
+
+
+### Bug Fixes
+
+* Standardised use of exports field across several projects. ([77e3c08](https://github.com/Anadian/cno-package-meta/commit/77e3c0800bfa9d0a5e42c4c52c84acab220ba103))
+
 ### [0.0.5](https://github.com/Anadian/cno-package-meta/compare/v0.0.4...v0.0.5) (2024-02-13)
 
 
